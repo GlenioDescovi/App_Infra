@@ -1,0 +1,9 @@
+ionic start devdactic-simpleLogin blank
+
+cd devdactic-simpleLogin
+
+ionic g provider authService
+
+ionic g page register
+
+ionic g page login

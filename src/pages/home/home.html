@@ -1,0 +1,92 @@
+<ion-header xmlns="http://www.w3.org/1999/html">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Realizar Chamado</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form #registerForm="ngForm">
+    <ion-item>
+      <ion-label>Setor</ion-label>
+      <ion-input type="text" name="setor" value="Infraestrutura" required disabled="true"></ion-input>
+    </ion-item>
+    <ion-list>
+      <ion-item>
+        <ion-label>Categoria do Serviço</ion-label>
+        <ion-select>
+          <ion-option value="diario">Diários</ion-option>
+          <ion-option value="marcenaria">Marcenária</ion-option>
+          <ion-option value="eletrico">Elétrico</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>Serviço Diponível</ion-label>
+        <ion-select>
+          <ion-option value="diarioo">Limpeza de banheiro</ion-option>
+          <ion-option value="marcenariaa">Etc</ion-option>
+          <ion-option value="eletricoo">Cortar madeira</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+<!--    <ion-list>
+      <ion-item>
+        <ion-label>Prédio</ion-label>
+        <ion-select *ngFor="let predio of predios">
+          <ion-option value="predio.idPredio"> {{ predio.nomePredio }}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>-->
+    <ion-list>
+      <ion-item>
+        <ion-label>Salas</ion-label>
+        <ion-select>
+          <ion-option value="sala1">109</ion-option>
+          <ion-option value="sala2">207</ion-option>
+          <ion-option value="sala3">309B</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-item>
+      <ion-label>Telefone/Ramal</ion-label>
+      <ion-input type="text" name="ramal" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descrição</ion-label>
+      <ion-textarea name="descricao" placeholder="Digite a descrição para ajudar o entendimento da solicitação..."></ion-textarea>
+    </ion-item>
+    <ion-card>
+      <img src="{{ base64Image }}"/>
+      <ion-card-content>
+      </ion-card-content>
+      <ion-row no-padding>
+        <ion-col>
+          <button ion-button clear small color="primary" icon-left (click)="takePhoto()">
+            <ion-icon name='camera'></ion-icon>
+            Câmera
+          </button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button clear small color="primary" icon-left (click)="openGallery()">
+            <ion-icon name='albums'></ion-icon>
+            Galeria
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-card>
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button color="primary" block type="submit" [disabled]="!registerForm.form.valid">Solicitar</button>
+      </ion-col>
+    </ion-row>
+  </form>
+ <!-- <button ion-button secondary menuToggle>Toggle Menu</button> -->
+</ion-content>
