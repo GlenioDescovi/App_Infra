@@ -11,8 +11,24 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
-
+  <ion-header>
+    <ion-navbar>
+      <ion-title>Chamados realizados por você</ion-title>
+    </ion-navbar>
+  </ion-header>
+  <ion-content padding>
+    <form #formEditar="ngForm">
+      <ion-card *ngFor="let chamado of chamados">
+        <img src="{{ chamado.foto }}"/>
+        <ion-card-content>
+          <p *ngIf="!chamado.foto"> Não possui imagem cadastrada</p>
+          <p>Serviço: {{ chamado.servico.nomeServico }}</p>
+          <p>Predio: {{ chamado.predio.nomePredio }}</p>
+          <p>sala: {{ chamado.sala.nomeSala }}</p>
+          <p>status: Em andamento</p>
+          <button  ion-button color="primary" (click)="showPrompt(chamado)" block type="submit">Opções</button>
+        </ion-card-content>
+      </ion-card>
+    </form>
 </ion-content>

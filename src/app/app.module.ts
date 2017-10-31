@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms"
 import { ErrorHandler, NgModule } from '@angular/core';
-import {IonicApp, IonicErrorHandler, IonicModule, NavController} from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AuthServiceProvider } from '../providers/auth-service/auth-service';
@@ -12,18 +13,21 @@ import { ChamadoServiceProvider } from '../providers/chamado-service/chamado-ser
 import { HttpModule } from "@angular/http";
 import { MeusChamadosPage } from "../pages/meus-chamados/meus-chamados";
 import { EditarChamadoPage } from "../pages/editar-chamado/editar-chamado";
+import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
 
 @NgModule({
   declarations: [
     Infraestrutura,
     HomePage,
     MeusChamadosPage,
-    EditarChamadoPage
+    EditarChamadoPage,
+    NotificacoesPage,
 
   ],
   imports: [
     HttpModule,
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(Infraestrutura),
   ],
   bootstrap: [IonicApp],
@@ -32,6 +36,7 @@ import { EditarChamadoPage } from "../pages/editar-chamado/editar-chamado";
     HomePage,
     MeusChamadosPage,
     EditarChamadoPage,
+    NotificacoesPage,
 
   ],
   providers: [

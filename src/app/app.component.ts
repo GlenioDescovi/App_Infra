@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { MeusChamadosPage } from "../pages/meus-chamados/meus-chamados";
 import { EditarChamadoPage } from "../pages/editar-chamado/editar-chamado";
+import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
 
 @Component({
   templateUrl: 'app.html'
@@ -23,7 +24,8 @@ export class Infraestrutura {
     this.pages = [
       { title: 'Realizar Chamado', component: HomePage },
       { title: 'Meus Chamados', component: MeusChamadosPage },
-      { title: 'Editar Chamado', component: EditarChamadoPage }
+      { title: 'Notificações', component: NotificacoesPage }
+
 
     ];
 

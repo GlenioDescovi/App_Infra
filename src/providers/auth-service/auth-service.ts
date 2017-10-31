@@ -26,9 +26,9 @@ export class AuthServiceProvider {
       return Observable.create(observable => {
 
         //Neste ponto, faça um pedido para o seu backend para fazer um cheque real!
-        console.log("credenciais do auth service" + credenciais.senha + credenciais.email)
-        let acesso = (credenciais.senha === "1234" && credenciais.email === "ggg");
-        this.currentUser = new Usuario('Glenio', 'glenio.descovi@gmail.com');
+        console.log("credenciais do auth service " + credenciais.senha + credenciais.email)
+        let acesso = (credenciais.senha === "1234" && credenciais.email === "g");
+        this.currentUser = new Usuario('Glenio', 'glenio.descovi@gmail.com', 2);
         observable.next(acesso);
         observable.complete();
       });
