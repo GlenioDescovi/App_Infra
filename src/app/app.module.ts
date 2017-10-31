@@ -45,7 +45,7 @@ import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
     Camera,
     ImagePicker,
     {provide:ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider, ChamadoServiceProvider,
+    AuthServiceProvider, ChamadoServiceProvider, EditarChamadoPage,
   ]
 })
 export class AppModule {}

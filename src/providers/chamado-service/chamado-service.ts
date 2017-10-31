@@ -24,7 +24,7 @@ export class ChamadoServiceProvider {
 
   //private url= "http://192.168.83.187:8181/backend/";
   //private url= "http://192.168.15.8:8181/backend/";
-  private url= "http://192.168.43.198:8080/";
+  private url= "http://192.168.90.66:8080/";
   constructor(public http: Http) {
 
   }
@@ -57,11 +57,13 @@ export class ChamadoServiceProvider {
     return this.http.post(this.url + "chamado/registrarChamado", chamado)
       .map(res => res).catch(error => Observable.throw(error));
   }
+  editarChamado(chamado: Chamado): Observable<boolean>{
+    return this.http.put(this.url + "chamado/editarUmChamado", chamado)
+      .map(res => res).catch(error => Observable.throw(error))
+  }
 
   deletaChamado(chamado: Chamado) : Observable<boolean>{
     console.log("id do chamado no service: " + chamado.idChamado);
-
-    //return this.http.delete(this.url+'chamado/excluirChamado/' + chamado.idChamado).map(response => response).catch(error => Observable.throw(error));
     return this.http.delete(this.url+'chamado/excluirChamado/'+ chamado.idChamado).map(resposta => resposta).catch(erro => Observable.throw(erro));
   }
 

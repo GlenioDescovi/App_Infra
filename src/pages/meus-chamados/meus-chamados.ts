@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
-import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
-import {Chamado} from "../../model/Chamado-model";
-import {ChamadoServiceProvider} from "../../providers/chamado-service/chamado-service";
+import { Component, OnInit } from '@angular/core';
+import { AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
+import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
+import { Chamado } from "../../model/Chamado-model";
+import { ChamadoServiceProvider } from "../../providers/chamado-service/chamado-service";
 import "rxjs/add/operator/catch";
-import {Sala} from "../../model/Sala-model";
-import {Predio} from "../../model/Predio-model";
-import {Servico} from "../../model/Servico-model";
-import {CategoriaDeServico} from "../../model/CategoriaDeServico-model";
+import { Sala } from "../../model/Sala-model";
+import { Predio } from "../../model/Predio-model";
+import { Servico } from "../../model/Servico-model";
+import { CategoriaDeServico } from "../../model/CategoriaDeServico-model";
+import {EditarChamadoPage} from "../editar-chamado/editar-chamado";
 
 /**
  * Generated class for the MeusChamadosPage page.
@@ -29,9 +30,10 @@ export class MeusChamadosPage implements OnInit{
   predio = new Predio();
   sala = new Sala();
   chamado = new Chamado();
+  loading: Loading;
 
 
-  constructor(public alertCtrl : AlertController, public nav: NavController, public navParams: NavParams, private auth: AuthServiceProvider, public chamadoService: ChamadoServiceProvider) {
+  constructor(public loadingCtrl: LoadingController, public alertCtrl : AlertController, public nav: NavController, public navParams: NavParams, private auth: AuthServiceProvider, public chamadoService: ChamadoServiceProvider) {
 
   }
 
@@ -44,25 +46,24 @@ export class MeusChamadosPage implements OnInit{
     this.chamadoService.getMeusChamados(this.auth.getUsuarioInfo()).subscribe(meusChamados => {this.chamados = meusChamados});
 
   }
-  editar(chamado){
+  editando(chamado){
     chamado.usuario =  this.auth.getUsuarioInfo();
-    console.log(chamado);
-
+    this.nav.push(EditarChamadoPage, {
+      parametroReferenciaEnviado: chamado});
   }
 
   excluir(chamado: Chamado){
 
-
+    this.showLoading();
     this.chamadoService.deletaChamado(chamado).subscribe(retorno => {
       if(retorno){
         this.nav.setRoot(MeusChamadosPage);
+        this.showMensagem("Chamado excluido.", "Sucesso!");
       }else{
-
-        this.nav.setRoot(MeusChamadosPage);
+        this.showMensagem("Chamado não excluido.", "Ops!");
       }
-    }, error => {this.nav.setRoot(MeusChamadosPage);});
+    }, error => {this.showMensagem("Chamado não excluido.", "Ops!");});
   }
-
 
   showPrompt(chamado) {
     let prompt = this.alertCtrl.create({
@@ -78,12 +79,31 @@ export class MeusChamadosPage implements OnInit{
         {
           text: 'Editar',
           handler: data => {
-            this.editar(chamado);
+            this.editando(chamado);
           }
         }
       ]
     });
     prompt.present();
+  }
+
+  showMensagem(text, title) {
+    this.loading.dismiss();
+
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: text,
+      buttons: ['OK']
+    });
+    alert.present(prompt);
+  }
+
+  showLoading() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Espere um momento...',
+      dismissOnPageChange: true
+    });
+    this.loading.present();
   }
 
   public logout() {

@@ -40,7 +40,7 @@ import { Camera } from "@ionic-native/camera";
     Camera,
     ImagePicker,
     {provide:ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider, ChamadoServiceProvider,
+    AuthServiceProvider, ChamadoServiceProvider, EditarChamadoPage,
   ]
 })
 export class MeusChamadosPageModule {}
