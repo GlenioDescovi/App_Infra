@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, AlertController, LoadingController, Loading, IonicPage, MenuController} from 'ionic-angular';
+import { NavController, AlertController, LoadingController, Loading, IonicPage, MenuController } from 'ionic-angular';
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service"
 import { HomePage } from "../home/home";
 /**
@@ -20,12 +20,24 @@ export class LoginPage {
   registerCredenciais = { email: '', senha: ''};
 
   constructor( public navCtrl: NavController,
-               public menuCtrl: MenuController,
+               public menu: MenuController,
                private nav: NavController,
                private auth: AuthServiceProvider,
                private alertCtrl: AlertController,
                private loadingCtrl: LoadingController) {
-    this.menuCtrl.enable(false, 'myMenu');
+  }
+
+  ionViewDidEnter() {
+    this.menu.swipeEnable(false);
+
+    // If you have more than one side menu, use the id like below
+    // this.menu.swipeEnable(false, 'menu1');
+  }
+  ionViewDidLeave() {
+    // don't forget to return the swipe to normal, else all the pages won't be swiping to open menu
+    this.menu.swipeEnable(true);
+    // If you have more than one side menu, use the id like below
+    // this.menu.swipeEnable(true, 'menu1');
   }
 
   // desse jeito se chama uma pagina

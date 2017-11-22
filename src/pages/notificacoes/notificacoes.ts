@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
+import {Notificacao} from "../../model/Notificacao-model";
+import {NotificacaoServiceProvider} from "../../providers/notificacao-service/notificacao-service";
 
 /**
  * Generated class for the NotificacoesPage page.
@@ -16,7 +18,11 @@ import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 })
 export class NotificacoesPage {
 
-  constructor(public auth: AuthServiceProvider, public nav: NavController, public navParams: NavParams) {
+  loading: Loading;
+  notificacao= new Notificacao();
+  notificacoes: Notificacao[];
+
+  constructor(public auth: AuthServiceProvider,public notificacaoService: NotificacaoServiceProvider , public nav: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public alertCtrl : AlertController) {
   }
   public logout() {
 
@@ -24,6 +30,14 @@ export class NotificacoesPage {
       this.nav.setRoot('LoginPage')
     });
   }
+
+  buscaMinhasNotificacoes(): void{
+
+    //depois de fazer o login com o tokene buscar o usuario que esta no web storage
+    this.notificacaoService.getNotificacoes(this.auth.getUsuarioInfo()).subscribe(minhasNotificacoes => {this.notificacoes = minhasNotificacoes});
+
+  }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificacoesPage');

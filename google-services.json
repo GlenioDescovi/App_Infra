@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "234129329300",
+    "firebase_url": "https://appinfraestrutura.firebaseio.com",
+    "project_id": "appinfraestrutura",
+    "storage_bucket": "appinfraestrutura.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234129329300:android:23b31aa4abc9a98f",
+        "android_client_info": {
+          "package_name": "com.appInfra.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234129329300-smqaq0bp375vqschqh4iqhacors7di96.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWL8eROX95qX-uSSGJKAhgbOtSmuEdwpc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

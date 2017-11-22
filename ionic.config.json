@@ -1,6 +1,6 @@
 {
   "name": "Aplicativo Infraestrutura",
-  "app_id": "",
+  "app_id": "9ecc8986",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -9,6 +9,7 @@ import { Predio } from "../../model/Predio-model";
 import { Servico } from "../../model/Servico-model";
 import { CategoriaDeServico } from "../../model/CategoriaDeServico-model";
 import {EditarChamadoPage} from "../editar-chamado/editar-chamado";
+import {StatusChamado} from "../../model/StatusChamado-model";
 
 /**
  * Generated class for the MeusChamadosPage page.
@@ -29,6 +30,7 @@ export class MeusChamadosPage implements OnInit{
   servico = new Servico();
   predio = new Predio();
   sala = new Sala();
+  statusChamado = new StatusChamado();
   chamado = new Chamado();
   loading: Loading;
 
@@ -43,6 +45,7 @@ export class MeusChamadosPage implements OnInit{
 
   buscaMeusChamados(): void{
 
+  //depois de fazer o login com o tokene buscar o usuario que esta no web storage
     this.chamadoService.getMeusChamados(this.auth.getUsuarioInfo()).subscribe(meusChamados => {this.chamados = meusChamados});
 
   }

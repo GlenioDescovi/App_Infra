@@ -14,6 +14,8 @@ import { HttpModule } from "@angular/http";
 import { MeusChamadosPage } from "../pages/meus-chamados/meus-chamados";
 import { EditarChamadoPage } from "../pages/editar-chamado/editar-chamado";
 import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
+import { NotificacaoServiceProvider } from '../providers/notificacao-service/notificacao-service';
+
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
     ImagePicker,
     {provide:ErrorHandler, useClass: IonicErrorHandler},
     AuthServiceProvider, ChamadoServiceProvider, EditarChamadoPage,
+    NotificacaoServiceProvider,
   ]
 })
 export class AppModule {}

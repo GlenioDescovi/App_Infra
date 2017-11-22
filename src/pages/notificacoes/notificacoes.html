@@ -17,25 +17,14 @@
       <ion-title>Fique atualizado</ion-title>
     </ion-navbar>
   </ion-header>
-
 <ion-content padding>
-  <ion-card>
+  <ion-card *ngFor="let notificacao of notificacoes">
     <ion-card-header>
-      Corte de grama
+      {{ notificacao.chamado.servico.nomeServico }}
     </ion-card-header>
     <ion-card-content>
-      <h3>um pouco da descrição do chamado...</h3>
-      <p>Foi mudado do status Novo para Em andamento no dia 00/00/00 as 17:30</p>
+      <h3>{{ notificacao.chamado.descricao }}</h3>
+      <p>{{ notificacao.descricao }} {{ notificacao.data }}</p>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      Limpeza dos banheiros
-    </ion-card-header>
-    <ion-card-content>
-      <h3>um pouco da descrição do chamado...</h3>
-      <p>Foi mudado do status Novo para Em andamento no dia 01/03/2018 as 09:30</p>
-    </ion-card-content>
-  </ion-card>
-
 </ion-content>
