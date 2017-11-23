@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
 import {AuthServiceProvider} from "../../providers/auth-service/auth-service";
 import {Notificacao} from "../../model/Notificacao-model";
@@ -16,7 +16,7 @@ import {NotificacaoServiceProvider} from "../../providers/notificacao-service/no
   selector: 'page-notificacoes',
   templateUrl: 'notificacoes.html',
 })
-export class NotificacoesPage {
+export class NotificacoesPage implements OnInit{
 
   loading: Loading;
   notificacao= new Notificacao();
@@ -32,15 +32,18 @@ export class NotificacoesPage {
   }
 
   buscaMinhasNotificacoes(): void{
-
     //depois de fazer o login com o tokene buscar o usuario que esta no web storage
     this.notificacaoService.getNotificacoes(this.auth.getUsuarioInfo()).subscribe(minhasNotificacoes => {this.notificacoes = minhasNotificacoes});
-
   }
 
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotificacoesPage');
+  }
+  ngOnInit(){
+
+    this.buscaMinhasNotificacoes();
+
   }
 
 }

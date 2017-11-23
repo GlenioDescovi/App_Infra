@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, IonicPage, Loading, LoadingController, NavController, NavParams} from 'ionic-angular';
+import { AlertController, IonicPage, Loading, LoadingController, NavController, NavParams, Platform } from 'ionic-angular';
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service";
 import { Chamado } from "../../model/Chamado-model";
 import { ChamadoServiceProvider } from "../../providers/chamado-service/chamado-service";
@@ -22,9 +22,11 @@ import {StatusChamado} from "../../model/StatusChamado-model";
 @Component({
   selector: 'page-meus-chamados',
   templateUrl: 'meus-chamados.html',
-})
+
+ })
 export class MeusChamadosPage implements OnInit{
 
+  isAndroid: boolean = false;
   chamados: Chamado[];
   categoriaDeServico = new CategoriaDeServico();
   servico = new Servico();
@@ -117,5 +119,7 @@ export class MeusChamadosPage implements OnInit{
   ngOnInit(){
     this.buscaMeusChamados();
   }
-
 }
+
+
+

@@ -21,7 +21,8 @@ export class NotificacaoServiceProvider {
   }
 
   getNotificacoes(usuario: Usuario): Observable<Notificacao[]>{
-    return this.http.get(this.url+"notificacao/notificacoesDoUsuario/" + usuario.idUsuario).map(response => response.json() as Notificacao).catch(error => Observable.throw(error));
+    return this.http.get(this.url+"notificacoes/notificacaoUsuario/" + usuario.idUsuario).map(response => response.json() as Notificacao).catch(error => Observable.throw(error));
   }
+
 
 }

@@ -24,7 +24,8 @@
     </ion-card-header>
     <ion-card-content>
       <h3>{{ notificacao.chamado.descricao }}</h3>
-      <p>{{ notificacao.descricao }} {{ notificacao.data }}</p>
+      <p>{{ notificacao.descricao }} na data {{ notificacao.data | date: 'dd/MM/yyyy'}}</p>
     </ion-card-content>
   </ion-card>
+  <h3 *ngIf="notificacoes?.length < 0">Não há notificações</h3>
 </ion-content>
