@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController, LoadingController, Loading, IonicPage, MenuController } from 'ionic-angular';
+import {NavController, AlertController, LoadingController, Loading, IonicPage, MenuController} from 'ionic-angular';
 import { AuthServiceProvider } from "../../providers/auth-service/auth-service"
 import { HomePage } from "../home/home";
 /**
@@ -27,6 +27,7 @@ export class LoginPage {
                private loadingCtrl: LoadingController) {
   }
 
+
   ionViewDidEnter() {
     this.menu.swipeEnable(false);
 
@@ -39,6 +40,8 @@ export class LoginPage {
     // If you have more than one side menu, use the id like below
     // this.menu.swipeEnable(true, 'menu1');
   }
+
+
 
   // desse jeito se chama uma pagina
   public createAccount() {

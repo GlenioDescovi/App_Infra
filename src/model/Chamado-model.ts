@@ -6,18 +6,18 @@ import {Predio} from "./Predio-model";
 import {StatusChamado} from "./StatusChamado-model";
 
 export class Chamado{
-idChamado: number;
-usuario: Usuario;
-categoriaDeServico: CategoriaDeServico;
-servico: Servico;
-predio: Predio;
-sala: Sala;
-ramal: string;
-descricao: string;
-foto: string;
-numero_proinfra: number;
-statusChamado: StatusChamado;
-data: Date;
+  idChamado: number;
+  usuario: Usuario;
+  categoriaDeServico: CategoriaDeServico;
+  servico: Servico;
+  predio: Predio;
+  sala: Sala;
+  ramal: string;
+  descricao: string;
+  foto: string;
+  numero_proinfra: number;
+  statusChamado: StatusChamado;
+  data: Date;
 
   constructor(idChamado ?: number, usuario ?: Usuario, categoriaDeServico ?: CategoriaDeServico, servico ?: Servico, predio ?: Predio, sala ?: Sala, ramal ?: string, descricao ?: string, base64Image ?: string, numeroProinfra ?: number, statusChamado ?: StatusChamado, data ?: Date) {
     this.idChamado = idChamado;

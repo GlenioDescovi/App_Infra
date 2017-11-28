@@ -16,7 +16,6 @@ import { EditarChamadoPage } from "../pages/editar-chamado/editar-chamado";
 import {NotificacoesPage} from "../pages/notificacoes/notificacoes";
 import { NotificacaoServiceProvider } from '../providers/notificacao-service/notificacao-service';
 
-
 @NgModule({
   declarations: [
     Infraestrutura,

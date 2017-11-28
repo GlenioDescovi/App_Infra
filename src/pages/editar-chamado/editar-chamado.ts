@@ -138,7 +138,6 @@ export class EditarChamadoPage implements OnInit{
       if(retorno){
         formulario.resetForm();
         this.nav.setRoot(MeusChamadosPage);
-        this.showLoading();
         this.showMensagem("Chamado editado.", "Sucesso!");
       }else{
 

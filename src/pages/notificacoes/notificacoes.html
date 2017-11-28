@@ -17,16 +17,16 @@
       <ion-title>Fique atualizado</ion-title>
     </ion-navbar>
   </ion-header>
-<ion-content padding>
-  <ion-card *ngFor="let notificacao of notificacoes">
-    <ion-card-header>
-      {{ notificacao.chamado.servico.nomeServico }}
-    </ion-card-header>
-    <ion-card-content>
-      <h3>{{ notificacao.chamado.descricao }}</h3>
-      <p>{{ notificacao.descricao }}</p>
-      <p>Data da mudança: {{ notificacao.data | date: 'dd/MM/yyyy'}}</p>
-    </ion-card-content>
-  </ion-card>
-  <h3 *ngIf="notificacoes?.length < 0">Não há notificações</h3>
-</ion-content>
+  <ion-content padding>
+    <ion-card *ngFor="let notificacao of notificacoes">
+      <ion-card-header>
+        {{ notificacao.chamado.servico.nomeServico }}
+      </ion-card-header>
+      <ion-card-content>
+        <h3>{{ notificacao.chamado.descricao }}</h3>
+        <p>{{ notificacao.descricao }}</p>
+        <p>Data da mudança: {{ notificacao.data | date: 'dd/MM/yyyy'}}</p>
+      </ion-card-content>
+    </ion-card>
+    <h3 *ngIf="notificacoes?.length < 0">Não há notificações</h3>
+  </ion-content>
